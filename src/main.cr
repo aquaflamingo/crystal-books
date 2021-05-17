@@ -1,4 +1,5 @@
 require "option_parser"
+require "./crystal_books.cr"
 
 OptionParser.parse do |parser|
   parser.banner = "Welcome to CrystalBooks"
@@ -14,6 +15,11 @@ OptionParser.parse do |parser|
   end
 
 	parser.on "start", "Start CrystalBooks" do
-		 CrystalBooks::App.start(ARGV[0])
+		 raise Exception.new("Please add a name to your instance") unless ARGV.size > 0 
+
+		 CrystalBooks::App.start
 	end
 end
+
+CrystalBooks::App.start
+
