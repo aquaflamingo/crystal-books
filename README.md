@@ -1,6 +1,6 @@
-# accounting
+# Crystal Books
 
-TODO: Write a description here
+Simple in memory book keeping program
 
 ## Installation
 
