@@ -4,15 +4,23 @@ Simple in memory book keeping program
 
 ## Installation
 
-TODO: Write installation instructions here
+```bash
+git clone git@github.com:robertsimoes/crystalbooks.git
+cd crystalbooks
+make build
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+Basic double entry accounting system
 
 ## Development
 
-TODO: Write development instructions here
+```bash
+git clone git@github.com:robertsimoes/crystalbooks.git
+cd crystalbooks
+make install
+```
 
 ## Contributing
 
@@ -24,4 +32,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [Robert](https://github.com/your-github-user) - creator and maintainer
+- [Robert](https://github.com/robertsimoes) - creator and maintainer
