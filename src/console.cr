@@ -20,7 +20,14 @@ class Console
   end
 
   protected def print_commands
-    "ls"
+		 # ls - list accounts
+		 # info - print ledger
+		 # save [name] - save ledger to file
+		 # load [file] - load ledger from file
+		 # debit [account, amount] - debit
+		 # credit [account, amount] - debit
+		 # add_account [name] - add account
+		 # show [name] - show account transaction history
   end
 
   protected def prompt(prompt_symbol : String)
