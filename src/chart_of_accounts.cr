@@ -4,13 +4,13 @@ class ChartOfAccounts
 	 class NotFound < Exception; end
 
 	 getter accounts = Hash(UUID, Account).new
-	 getter account_names = Hash(Symbol, UUID).new
+	 getter account_names = Hash(String, UUID).new
 
 	 def initialize
 	 end
 
 	 def add(account : Account)
-			account_names[account.name.to_sym] = account.id
+			account_names[account.name] = account.id
 			accounts[account.id] = account
 			true
 	 end
@@ -21,10 +21,10 @@ class ChartOfAccounts
 			return accounts[account_id]
 	 end
 
-	 def find(name : String | Symbol)
-			raise NotFound.new("Could not find account with name") unless account_names.includes?(name.to_sym)
+	 def find(name : String)
+			raise NotFound.new("Could not find account with name") unless account_names.includes?(name)
 
-			_id = account_names[name.to_sym]
+			_id = account_names[name]
 
 			return accounts[_id]
 	 end

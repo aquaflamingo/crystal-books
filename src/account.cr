@@ -1,6 +1,7 @@
 require "./entry.cr"
 
 class Account
+	 getter id : UUID
 	 getter name : String
 	 getter balance : Float32
 	 getter records : Array(Entry)

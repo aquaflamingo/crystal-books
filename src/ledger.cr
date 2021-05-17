@@ -7,7 +7,7 @@ class Ledger
 
 	 def initialize(@name, @chart = ChartOfAccounts.new); end
 
-	 def add_account(name : Symbol | String, initial_balance : Float32)
+	 def add_account(name : String, initial_balance : Float32)
 			account = Account.new(
 				 name.to_s, 
 				 initial_balance
@@ -28,7 +28,7 @@ class Ledger
 			true
 	 end
 
-	 def debit(account_name : String | Symbol, time : Time, amount : Float32)
+	 def debit(account_name : String, time : Time, amount : Float32)
 			account = chart.find(account_name)
 
 			account.debit(time, amount)
@@ -46,7 +46,7 @@ class Ledger
 			true
 	 end
 
-	 def credit(account_name : String | Symbol, time : Time, amount : Float32)
+	 def credit(account_name : String, time : Time, amount : Float32)
 			account = chart.find(account_name)
 
 			account.debit(time, amount)
