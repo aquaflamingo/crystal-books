@@ -6,21 +6,21 @@ class Account
 	 getter records : Array(Entry)
 
 	 def initialize(@name, @balance, @records = [] of Entry)
-			@_id = UUID.random
+			@id = UUID.random
 	 end
 
-	 def credit(amount : Float32)
+	 def credit(time : Time, amount : Float32)
 			records << Entry.new(
-				 Time.utc,
+				 time,
 				 amount,
 				 Entry::Type::CREDIT
 			)
 	 end
 
 
-	 def debit(amount : Float32)
+	 def debit(time : Time, amount : Float32)
 			records << Entry.new(
-				 Time.utc,
+				 time,
 				 amount,
 				 Entry::Type::DEBIT
 			)
