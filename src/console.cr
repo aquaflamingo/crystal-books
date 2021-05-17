@@ -19,6 +19,14 @@ class Console
     case input
     when "ls"
 			 Command::LS.new(ledger).run
+		when input.starts_with? "addaccount"
+			 args = input.strip("addaccount").split(" ")
+
+			 n = args[0]
+			 b = args[1]
+
+			 Command::AddAccount.new(ledger).run(n,b.to_f32)
+
 		when "exit"
 			 puts "Exiting..."
 			 exit
