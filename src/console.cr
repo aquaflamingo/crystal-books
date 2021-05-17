@@ -1,18 +1,27 @@
 require "./ledger.cr"
+require "./command/*"
 
 class Console
+	 getter ledger : Ledger 
+
+	 def initialize(@name = "Default")
+			@ledger = Ledger.new(@name)
+	 end
+
   def run
     # REPL
     loop do
       prompt ">>>"
-			puts "hi"
     end
   end
 
   protected def handle(input)
     case input
     when "ls"
-      puts "Would ls accounts"
+			 Command::LS.new(ledger).run
+		when "exit"
+			 puts "Exiting..."
+			 exit
     else
       puts "err: #{input} is not a command"
       puts print_commands
@@ -34,10 +43,6 @@ class Console
 		 print prompt_symbol
 	   input = gets
 
-    if input.nil?
-      puts "err: command required"
-    else
-			 handle(input.chomp)
-    end
+		 handle(input.chomp) unless input.nil? || input == ""
   end
 end

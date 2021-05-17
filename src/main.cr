@@ -15,8 +15,6 @@ OptionParser.parse do |parser|
   end
 
 	parser.on "start", "Start CrystalBooks" do
-		 raise Exception.new("Please add a name to your instance") unless ARGV.size > 0 
-
 		 CrystalBooks::App.start
 	end
 end
