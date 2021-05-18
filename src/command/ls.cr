@@ -18,6 +18,8 @@ module Command
       end
 
       print result
+
+			print ledger.save("test")
     end
   end
 end

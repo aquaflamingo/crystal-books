@@ -21,17 +21,19 @@ class Console
     when input.starts_with? "ls"
       Command::LS.new(ledger).run
     when input.starts_with? "addaccount"
-			 args = input.strip("addaccount").split(" ")
-
+			 args = input.split(" ")
 			 args.shift
 
 			raise InvalidArgument.new("missing arguments [name]") if args.size != 1
 
+			puts "args #{args}"
 			n = args.last
 
 			raise InvalidArgument.new("name cannot be nil") if n.blank?
 
       Command::AddAccount.new(ledger).run(n)
+		when input.starts_with? "save"
+
 		when input.starts_with? "exit"
       puts "Exiting..."
       exit
