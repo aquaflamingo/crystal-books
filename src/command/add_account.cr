@@ -4,9 +4,9 @@ module Command
 
     def initialize(@ledger); end
 
-    def run(*args)
+		def run(name : String)
 			 @ledger.add_account(
-					*args
+					name, 0.0
 			 )
 
 			 puts "Account added"
