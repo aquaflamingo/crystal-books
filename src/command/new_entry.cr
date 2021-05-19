@@ -1,8 +1,7 @@
-module Command
-  class NewEntry
-    getter ledger : Ledger
+require "./base.cr"
 
-    def initialize(@ledger); end
+module Command
+  class NewEntry < Command::Base
 
     def run(acc_name : String, amount : String, type : Symbol)
       amount_f = amount.to_f32

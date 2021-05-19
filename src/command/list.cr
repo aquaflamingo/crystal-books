@@ -1,9 +1,6 @@
+require "./base.cr"
 module Command
-  class LS
-    getter ledger : Ledger
-
-    def initialize(@ledger); end
-
+  class List < Command::Base
     def run
       result = String.build do |s|
         s << "| Id | Account | Balance |"

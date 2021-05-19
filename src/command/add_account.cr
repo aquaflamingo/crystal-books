@@ -1,8 +1,7 @@
-module Command
-  class AddAccount
-    getter ledger : Ledger
+require "./base.cr"
 
-    def initialize(@ledger); end
+module Command
+  class AddAccount < Command::Base
 
 		def run(name : String)
 			 @ledger.add_account(
