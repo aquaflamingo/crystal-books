@@ -1,8 +1,13 @@
 require "./entry.cr"
 
 class Account
+	 include YAML::Serializable
+
+	 @[YAML::Field(key: "account_id")]
 	 getter id : UUID
+	 @[YAML::Field(key: "account_name")]
 	 getter name : String
+	 @[YAML::Field(key: "records")]
 	 getter records : Array(Entry)
 
 	 def initialize(@name, initial_balance : Float32, @records = [] of Entry)

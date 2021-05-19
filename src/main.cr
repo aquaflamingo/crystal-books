@@ -20,4 +20,4 @@ OptionParser.parse do |parser|
   end
 end
 
-CrystalBooks::App.start(f)
+CrystalBooks::App.start(opts[:f])

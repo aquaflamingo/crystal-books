@@ -16,7 +16,7 @@ module Command
 
       print result
 
-			print ledger.dump
+			print ledger.dump_v2
     end
   end
 end
