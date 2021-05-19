@@ -25,7 +25,7 @@ class Console
   protected def handle(input)
     case
     when input.starts_with? "ls"
-      Command::LS.new(ledger).run
+      Command::List.new(ledger).run
     when input.starts_with? "addaccount"
       args = input.split(" ")
       args.shift
@@ -37,7 +37,6 @@ class Console
       raise InvalidArgument.new("name cannot be nil") if n.blank?
 
       Command::AddAccount.new(ledger).run(n)
-    when input.starts_with? "save"
     when input.starts_with? "debit"
       args = input.split(" ")
       args.shift
@@ -64,6 +63,16 @@ class Console
       raise InvalidArgument.new("amount cannot be nil") if amount.blank?
 
       Command::NewEntry.new(ledger).run(acc_name, amount, :credit)
+    when input.starts_with? "save"
+      args = input.split(" ")
+      args.shift
+
+      raise InvalidArgument.new("requires two arguments [filename]") if args.size != 1
+
+			fname = args.first
+      raise InvalidArgument.new("name cannot be nil") if fname.blank?
+
+			Command::Save.new(ledger).run(fname)
     when input.starts_with? "exit"
       puts "Exiting..."
       exit

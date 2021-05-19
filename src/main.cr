@@ -1,8 +1,13 @@
 require "option_parser"
 require "./crystal_books.cr"
 
+opts = Hash(Symbol, String).new
 OptionParser.parse do |parser|
   parser.banner = "Welcome to CrystalBooks"
+
+  parser.on "-f", "--file", "Load ledger from yml" do |f|
+		 opts[:file] = f
+  end
 
   parser.on "-v", "--version", "Show version" do
 		 puts "#{CrystalBooks::VERSION}"
@@ -13,10 +18,6 @@ OptionParser.parse do |parser|
     puts parser
     exit
   end
-
-	parser.on "start", "Start CrystalBooks" do
-		 CrystalBooks::App.start
-	end
 end
 
 CrystalBooks::App.start
