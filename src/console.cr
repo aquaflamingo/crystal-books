@@ -6,15 +6,19 @@ class Console
 
   getter ledger : Ledger
 
-  def initialize(@name = "Default")
-    @ledger = Ledger.new(@name)
+  def initialize(file_name = "")
+		 if file_name.blank?
+				@ledger = Ledger.new("Default")
+		 else
+			 @ledger = Ledger.load_from(file_name)
+		 end
   end
 
   def seed
     @ledger.add_account("Account", 0)
   end
 
-  def run
+  def start
     # REPL
     seed
     loop do

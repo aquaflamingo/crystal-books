@@ -55,6 +55,14 @@ class Ledger
     true
   end
 
+	def self.load_from(file : String)
+	 yaml = File.open(file) do |file|
+		 YAML.parse(file)
+	 end
+
+	 # TODO load accounts 
+	end
+
   def dump
     String.build do |str|
       @chart.accounts.each do |id, acc|
