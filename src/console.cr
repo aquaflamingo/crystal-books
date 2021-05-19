@@ -2,20 +2,21 @@ require "./ledger.cr"
 require "./command/*"
 
 class Console
-	 class InvalidArgument < Exception; end  
+  class InvalidArgument < Exception; end
+
   getter ledger : Ledger
 
   def initialize(@name = "Default")
     @ledger = Ledger.new(@name)
   end
 
-	def seed
-		 @ledger.add_account("Account", 0)
-	end
+  def seed
+    @ledger.add_account("Account", 0)
+  end
 
   def run
     # REPL
-		 seed
+    seed
     loop do
       prompt ">>>"
     end
@@ -26,44 +27,44 @@ class Console
     when input.starts_with? "ls"
       Command::LS.new(ledger).run
     when input.starts_with? "addaccount"
-			 args = input.split(" ")
-			 args.shift
+      args = input.split(" ")
+      args.shift
 
-			raise InvalidArgument.new("requires one argument [name]") if args.size != 1
+      raise InvalidArgument.new("requires one argument [name]") if args.size != 1
 
-			n = args.last
+      n = args.last
 
-			raise InvalidArgument.new("name cannot be nil") if n.blank?
+      raise InvalidArgument.new("name cannot be nil") if n.blank?
 
       Command::AddAccount.new(ledger).run(n)
-		when input.starts_with? "save"
-		when input.starts_with? "debit"
-			 args = input.split(" ")
-			 args.shift
+    when input.starts_with? "save"
+    when input.starts_with? "debit"
+      args = input.split(" ")
+      args.shift
 
-			raise InvalidArgument.new("requires two arguments [name][amount]") if args.size != 2
+      raise InvalidArgument.new("requires two arguments [name][amount]") if args.size != 2
 
-			n = args.last
+      n = args.last
 
-			acc_name = args.first
-			amount = args.last
-			raise InvalidArgument.new("name cannot be nil") if acc_name.blank?
-			raise InvalidArgument.new("amount cannot be nil") if amount.blank?
+      acc_name = args.first
+      amount = args.last
+      raise InvalidArgument.new("name cannot be nil") if acc_name.blank?
+      raise InvalidArgument.new("amount cannot be nil") if amount.blank?
 
       Command::NewEntry.new(ledger).run(acc_name, amount, :debit)
-		when input.starts_with? "credit"
-			 args = input.split(" ")
-			 args.shift
+    when input.starts_with? "credit"
+      args = input.split(" ")
+      args.shift
 
-			raise InvalidArgument.new("requires two arguments [name][amount]") if args.size != 2
+      raise InvalidArgument.new("requires two arguments [name][amount]") if args.size != 2
 
-			acc_name = args.first
-			amount = args.last
-			raise InvalidArgument.new("name cannot be nil") if acc_name.blank?
-			raise InvalidArgument.new("amount cannot be nil") if amount.blank?
+      acc_name = args.first
+      amount = args.last
+      raise InvalidArgument.new("name cannot be nil") if acc_name.blank?
+      raise InvalidArgument.new("amount cannot be nil") if amount.blank?
 
       Command::NewEntry.new(ledger).run(acc_name, amount, :credit)
-		when input.starts_with? "exit"
+    when input.starts_with? "exit"
       puts "Exiting..."
       exit
     else
@@ -87,10 +88,10 @@ class Console
     print prompt_symbol
     input = gets
 
-		begin 
-    handle(input.chomp) unless input.nil? || input == ""
-		rescue ex : Exception
-			 puts "err: #{ex.message}"
-		end
+    begin
+      handle(input.chomp) unless input.nil? || input == ""
+    rescue ex : Exception
+      puts "err: #{ex.message}"
+    end
   end
 end
