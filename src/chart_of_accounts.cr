@@ -16,13 +16,13 @@ class ChartOfAccounts
 	 end
 
 	 def find(account_id : UUID)
-			raise NotFound.new("Could not find id") unless accounts.includes?(account_id)
+			raise NotFound.new("Could not find id") unless accounts.keys.includes?(account_id)
 
 			return accounts[account_id]
 	 end
 
 	 def find(name : String)
-			raise NotFound.new("Could not find account with name") unless account_names.includes?(name)
+			raise NotFound.new("Could not find account with name") unless account_names.keys.includes?(name)
 
 			_id = account_names[name]
 
