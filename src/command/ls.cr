@@ -19,7 +19,7 @@ module Command
 
       print result
 
-			print ledger.save("test")
+			print ledger.dump
     end
   end
 end
