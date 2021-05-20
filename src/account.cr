@@ -4,14 +4,14 @@ class Account
 	 include YAML::Serializable
 
 	 @[YAML::Field(key: "account_id")]
-	 getter id : UUID
+	 getter id : String
 	 @[YAML::Field(key: "account_name")]
 	 getter name : String
 	 @[YAML::Field(key: "records")]
 	 getter records : Array(Entry)
 
 	 def initialize(@name, initial_balance : Float32, @records = [] of Entry)
-			@id = UUID.random
+			@id = UUID.random.to_s
 
 			# Initial entry
 			records << Entry.new(

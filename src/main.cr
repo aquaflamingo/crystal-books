@@ -1,7 +1,9 @@
 require "option_parser"
 require "./crystal_books.cr"
 
-opts = Hash(Symbol, String).new
+opts = Hash(Symbol, String).new 
+opts[:file] = ""
+
 OptionParser.parse do |parser|
   parser.banner = "Welcome to CrystalBooks"
 
@@ -20,4 +22,4 @@ OptionParser.parse do |parser|
   end
 end
 
-CrystalBooks::App.start(opts[:f])
+CrystalBooks::App.start(opts[:file])

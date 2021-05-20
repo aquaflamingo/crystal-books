@@ -3,8 +3,8 @@ require "uuid"
 class ChartOfAccounts
 	 class NotFound < Exception; end
 
-	 getter accounts = Hash(UUID, Account).new
-	 getter account_names = Hash(String, UUID).new
+	 getter accounts = Hash(String, Account).new
+	 getter account_names = Hash(String, String).new
 
 	 def initialize
 	 end
@@ -15,7 +15,7 @@ class ChartOfAccounts
 			true
 	 end
 
-	 def find(account_id : UUID)
+	 def find(account_id : String)
 			raise NotFound.new("Could not find id") unless accounts.keys.includes?(account_id)
 
 			return accounts[account_id]

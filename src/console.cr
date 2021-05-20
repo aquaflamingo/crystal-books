@@ -14,13 +14,8 @@ class Console
 		 #end
   end
 
-  def seed
-    @ledger.add_account("Account", 0)
-  end
-
   def start
     # REPL
-    seed
     loop do
       prompt ">>>"
     end
@@ -87,14 +82,13 @@ class Console
   end
 
   protected def print_commands
-    # ls - list accounts
-    # info - print ledger
-    # save [name] - save ledger to file
-    # load [file] - load ledger from file
-    # debit [account, amount] - debit
-    # credit [account, amount] - debit
-    # add_account [name] - add account
-    # show [name] - show account transaction history
+		 print <<-EOM
+		 ls - list accounts
+		 save [name] - save ledger to file
+		 debit [account, amount] - debit
+		 credit [account, amount] - debit
+		 addaccount [name] - add account
+		 EOM
   end
 
   protected def prompt(prompt_symbol : String)

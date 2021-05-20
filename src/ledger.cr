@@ -19,8 +19,8 @@ class Ledger
     return account
   end
 
-  def debit(account_id : UUID | String, amount : Float32, time = Time.utc)
-    _id = UUID.new(account_id)
+  def debit(account_id : String, amount : Float32, time = Time.utc)
+    _id = account_id
 
     account = chart.find(_id)
 
@@ -37,8 +37,8 @@ class Ledger
     true
   end
 
-  def credit(account_id : UUID | String, amount : Float32, time = Time.utc)
-    _id = UUID.new(account_id)
+  def credit(account_id : String, amount : Float32, time = Time.utc)
+    _id = account_id
 
     account = chart.find(_id)
 

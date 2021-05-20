@@ -7,7 +7,7 @@ class Entry
   end
 
 	@[YAML::Field(key: "id")]
-  getter id : UUID
+  getter id : String
 	@[YAML::Field(key: "time")]
   getter time : Time
 	@[YAML::Field(key: "amount")]
@@ -16,6 +16,6 @@ class Entry
   getter type : Type
 
   def initialize(@time : Time, @amount : Float32, @type : Type)
-		 @id = UUID.random
+		 @id = UUID.random.to_s
   end
 end
