@@ -14,6 +14,18 @@ make build
 
 Basic double entry accounting system
 
+```bash
+./bin/crystalbooks
+
+>>>commands
+ls - list accounts
+save [name] - save ledger to file
+debit [account, amount] - debit
+credit [account, amount] - debit
+addaccount [name] - add account
+
+```
+
 ## Development
 
 ```bash
