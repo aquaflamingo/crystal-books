@@ -2,6 +2,8 @@
 
 Simple in memory book keeping program
 
+https://user-images.githubusercontent.com/16901597/120935847-8eaec580-c6b9-11eb-8a70-bc68dfe7644f.mp4
+
 ## Installation
 
 ```bash
