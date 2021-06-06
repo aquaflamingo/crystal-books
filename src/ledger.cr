@@ -3,7 +3,11 @@ require "./account.cr"
 require "./chart_of_accounts.cr"
 
 class Ledger
+  include YAML::Serializable
+
+  @[YAML::Field(key: "name")]
   getter name : String
+  @[YAML::Field(key: "chart_of_accounts")]
   getter chart : ChartOfAccounts
 
   def initialize(@name, @chart = ChartOfAccounts.new); end
@@ -56,51 +60,12 @@ class Ledger
   end
 
   def self.load_from(file : String)
-    yaml = File.open(file) do |file|
-      YAML.parse(file)
-    end
-
-    # TODO load accounts
-  end
-
-  def dump_v2
-    String.build do |s|
-      @chart.accounts.each do |id, acc|
-        s << acc.to_yaml
-      end
+    File.open(file) do |file|
+			 from_yaml(file)
     end
   end
 
-  def dump_v1
-    String.build do |str|
-      @chart.accounts.each do |id, acc|
-        res = YAML.build do |y|
-          y.mapping do
-            y.scalar id
-            y.mapping do
-              y.scalar "account_name"
-              y.scalar acc.name.downcase
-              y.scalar "transactions"
-              y.sequence do
-                acc.records.each do |record|
-                  y.mapping do
-                    y.scalar record.id
-                    y.mapping do
-                      y.scalar "date"
-                      y.scalar record.time.to_s
-                      y.scalar "type"
-                      y.scalar record.type
-                      y.scalar "amount"
-                      y.scalar record.amount
-                    end
-                  end
-                end
-              end
-            end
-          end
-        end
-        str << res
-      end
-    end unless @chart.accounts.empty?
+  def dump
+    self.to_yaml
   end
 end

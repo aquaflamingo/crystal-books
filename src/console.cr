@@ -7,7 +7,13 @@ class Console
   getter ledger : Ledger
 
   def initialize(file_name = "")
-	 @ledger = Ledger.new("Default")
+		 if file_name.blank?
+				print "Loading new session...\n"
+			@ledger = Ledger.new("Default")
+		 else
+				print "Loading #{file_name} into session...\n"
+				@ledger = Ledger.load_from(file_name)
+		 end
   end
 
   def start

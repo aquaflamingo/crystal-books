@@ -1,0 +1,39 @@
+---
+name: Default
+chart_of_accounts:
+  accounts:
+    e976d6f9-9b75-4025-bb4b-1bf678fed3ce:
+      account_id: e976d6f9-9b75-4025-bb4b-1bf678fed3ce
+      account_name: test
+      records:
+      - id: 32b57028-93e3-439f-b8f7-2d73cd98de79
+        time: 2021-06-06 20:33:35.481241000
+        amount: 0.0
+        type: debit
+      - id: 6a84db0b-93d8-4dfc-9552-aa11cf6c25f8
+        time: 2021-06-06 20:33:41.980058000
+        amount: 1.0
+        type: debit
+      - id: 2f1de851-420e-4323-823d-4ebbc78412fd
+        time: 2021-06-06 20:33:45.638004000
+        amount: 2.0
+        type: credit
+      - id: 8b884132-3854-48a2-8dcb-6cbe7f077264
+        time: 2021-06-06 20:33:47.856134000
+        amount: 3.0
+        type: debit
+    864d1917-5691-41bd-a6b5-f984ef058369:
+      account_id: 864d1917-5691-41bd-a6b5-f984ef058369
+      account_name: testtwo
+      records:
+      - id: 3763e508-1c18-4a4b-a407-8e5e5c702af4
+        time: 2021-06-06 20:33:37.910246000
+        amount: 0.0
+        type: debit
+      - id: 8cd3060f-1966-47ab-84f5-41f905557550
+        time: 2021-06-06 20:33:50.649976000
+        amount: 3.0
+        type: debit
+  account_names:
+    test: e976d6f9-9b75-4025-bb4b-1bf678fed3ce
+    testtwo: 864d1917-5691-41bd-a6b5-f984ef058369

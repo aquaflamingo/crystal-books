@@ -28,6 +28,20 @@ addaccount [name] - add account
 
 ```
 
+Loading from file:
+```bash
+tree 
+
+* ledger.yml
+```
+
+```bash
+./bin/crystalbooks --file ledger.yml
+
+Loading ledger.yml into session
+
+>>>
+```
 ## Development
 
 ```bash

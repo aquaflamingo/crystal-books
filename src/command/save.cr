@@ -3,7 +3,9 @@ require "./base.cr"
 module Command
 	 class Save < Command::Base
 			def run(fname)
-				 File.write(fname, ledger.dump_v2)
+				 print "Saving to #{fname}\n"
+				 File.write(fname, ledger.dump)
+				 print "Done..."
 			end
 	 end
 end

@@ -1,9 +1,12 @@
 require "uuid"
 
 class ChartOfAccounts
+	 include YAML::Serializable
 	 class NotFound < Exception; end
 
+	 @[YAML::Field(key: "accounts")]
 	 getter accounts = Hash(String, Account).new
+	 @[YAML::Field(key: "account_names")]
 	 getter account_names = Hash(String, String).new
 
 	 def initialize
