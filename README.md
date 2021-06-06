@@ -5,17 +5,17 @@ Simple in memory book keeping program
 ## Installation
 
 ```bash
-git clone git@github.com:robertsimoes/crystalbooks.git
-cd crystalbooks
+git clone git@github.com:robertsimoes/crystal-books.git
+cd crystal-books
 make build
 ```
 
 ## Usage
 
-Basic double entry accounting system
+Basic accounting system in Crystal 
 
 ```bash
-./bin/crystalbooks
+./bin/crystal-books
 
 >>>commands
 ls - list accounts
@@ -29,8 +29,8 @@ addaccount [name] - add account
 ## Development
 
 ```bash
-git clone git@github.com:robertsimoes/crystalbooks.git
-cd crystalbooks
+git clone git@github.com:robertsimoes/crystal-books.git
+cd crystal-books
 make install
 ```
 
