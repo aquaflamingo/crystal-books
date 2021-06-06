@@ -7,11 +7,7 @@ class Console
   getter ledger : Ledger
 
   def initialize(file_name = "")
-		 #if file_name.blank?
-				@ledger = Ledger.new("Default")
-		 #else
-			 #@ledger = Ledger.load_from(file_name)
-		 #end
+	 @ledger = Ledger.new("Default")
   end
 
   def start
