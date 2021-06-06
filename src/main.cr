@@ -7,7 +7,7 @@ opts[:file] = ""
 OptionParser.parse do |parser|
   parser.banner = "Welcome to CrystalBooks"
 
-  parser.on "-f", "--file", "Load ledger from yml" do |f|
+  parser.on "-f FILE", "--file FILE", "Load ledger from yml" do |f|
 		 opts[:file] = f
   end
 
