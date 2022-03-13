@@ -2,7 +2,7 @@ name: accounting
 version: 0.1.0
 
 authors:
-  - Robert <dev@robertsimoes.org>
+  - Robert 
 
 targets:
   accounting:

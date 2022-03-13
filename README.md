@@ -5,9 +5,8 @@ Simple in memory book keeping program
 https://user-images.githubusercontent.com/16901597/120935847-8eaec580-c6b9-11eb-8a70-bc68dfe7644f.mp4
 
 ## Installation
-
+Clone the repository
 ```bash
-git clone git@github.com:robertsimoes/crystal-books.git
 cd crystal-books
 make build
 ```
@@ -43,9 +42,8 @@ Loading ledger.yml into session
 >>>
 ```
 ## Development
-
+Clone the repository
 ```bash
-git clone git@github.com:robertsimoes/crystal-books.git
 cd crystal-books
 make install
 ```
